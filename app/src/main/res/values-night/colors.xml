@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 主题颜色 -->
+    <color name="primary">#64B5F6</color>
+    <color name="primary_dark">#42A5F5</color>
+    <color name="accent">#FF80AB</color>
+    <color name="accent_dark">#FF4081</color>
+    
+    <!-- 兼容性颜色 -->
+    <color name="colorPrimary">@color/primary</color>
+    <color name="colorPrimaryDark">@color/primary_dark</color>
+    <color name="colorAccent">@color/accent</color>
+    
+    <!-- 基础颜色 -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    
+    <!-- 文本颜色 -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B3FFFFFF</color>
+    
+    <!-- 背景颜色 -->
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="surface_dark">#121212</color>
+    
+    <!-- 错误颜色 -->
+    <color name="error">#CF6679</color>
+    
+    <!-- 功能颜色 -->
+    <color name="laser_red">#FF5252</color>
+    <color name="laser_green">#69F0AE</color>
+    <color name="laser_blue">#40C4FF</color>
+    <color name="spotlight">#33FFFFFF</color>
+    <color name="magnifier_border">#424242</color>
+
+    <!-- 默认主题颜色 -->
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+</resources> 

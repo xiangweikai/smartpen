@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart Pen</string>
+    
+    <!-- 导航抽屉 -->
+    <string name="navigation_drawer_open">打开导航抽屉</string>
+    <string name="navigation_drawer_close">关闭导航抽屉</string>
+    
+    <!-- 通用字符串 -->
+    <string name="general_apply">应用</string>
+    <string name="general_reset">重置</string>
+    <string name="general_cancel">取消</string>
+    <string name="general_confirm">确定</string>
+    <string name="general_error">错误</string>
+    
+    <!-- 模块标题 -->
+    <string name="laser_title">数码激光</string>
+    <string name="spotlight_title">聚光灯</string>
+    <string name="magnifier_title">放大镜</string>
+    <string name="annotation_title">批注</string>
+    <string name="recording_title">录音设置</string>
+    <string name="timer_title">倒计时</string>
+    <string name="voice_title">语音自定义</string>
+    
+    <!-- 录音设置 -->
+    <string name="recording_settings">录音设置</string>
+    <string name="recording_save_path">保存路径</string>
+    <string name="recording_select_folder">选择文件夹</string>
+    <string name="recording_meeting">会议录音</string>
+    
+    <!-- 倒计时设置 -->
+    <string name="timer_custom_duration">自定义时长</string>
+    <string name="timer_remaining_time">剩余时间</string>
+    <string name="timer_start">开始倒计时</string>
+    <string name="timer_stop">停止倒计时</string>
+    <string name="timer_enable">启用倒计时</string>
+    
+    <!-- 语音设置 -->
+    <string name="voice_settings">语音设置</string>
+    <string name="voice_feedback">语音反馈</string>
+    <string name="voice_volume">音量</string>
+    <string name="voice_mic_sensitivity">麦克风灵敏度</string>
+    <string name="voice_add_command">添加指令</string>
+    <string name="voice_select_target">选择目标</string>
+</resources>
