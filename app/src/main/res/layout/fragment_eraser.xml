@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="橡皮擦设置"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 橡皮擦大小设置 -->
+    <TextView
+        android:id="@+id/eraser_size_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="橡皮擦大小: 20"
+        android:layout_marginBottom="8dp" />
+
+    <SeekBar
+        android:id="@+id/eraser_size_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="50"
+        android:progress="20"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 应用按钮 -->
+    <Button
+        android:id="@+id/apply_eraser_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="应用"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout> 

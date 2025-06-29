@@ -67,6 +67,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:orientation="horizontal">
 
                     <com.google.android.material.card.MaterialCardView
@@ -74,6 +76,8 @@
                         android:layout_height="48dp"
                         android:layout_margin="4dp"
                         android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
                         app:cardBackgroundColor="#FF0000"
                         app:cardCornerRadius="8dp">
 
@@ -82,6 +86,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:button="@null"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:gravity="center"
                             android:text="红色"
                             android:textColor="@android:color/white" />
@@ -92,6 +98,8 @@
                         android:layout_height="48dp"
                         android:layout_margin="4dp"
                         android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
                         app:cardBackgroundColor="#00FF00"
                         app:cardCornerRadius="8dp">
 
@@ -100,6 +108,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:button="@null"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:gravity="center"
                             android:text="绿色"
                             android:textColor="@android:color/white" />
@@ -110,6 +120,8 @@
                         android:layout_height="48dp"
                         android:layout_margin="4dp"
                         android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
                         app:cardBackgroundColor="#0000FF"
                         app:cardCornerRadius="8dp">
 
@@ -118,6 +130,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:button="@null"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:gravity="center"
                             android:text="蓝色"
                             android:textColor="@android:color/white" />

@@ -152,7 +152,7 @@ public class SmartPenConnection {
             PendingIntent permissionIntent;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 permissionIntent = PendingIntent.getBroadcast(appContext, 0, 
-                    new Intent(ACTION_USB_PERMISSION), PendingIntent.FLAG_MUTABLE);
+                    new Intent(ACTION_USB_PERMISSION), PendingIntent.FLAG_IMMUTABLE);
             } else {
                 permissionIntent = PendingIntent.getBroadcast(appContext, 0, 
                     new Intent(ACTION_USB_PERMISSION), FLAG_IMMUTABLE);

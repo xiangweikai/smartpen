@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.zuomu.smartpen"
-        minSdk 24
+        minSdk 26
         targetSdk 35
         versionCode 1
         versionName "1.0"
@@ -29,6 +29,11 @@ android {
     
     buildFeatures {
         viewBinding true
+    }
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+        }
     }
 }
 

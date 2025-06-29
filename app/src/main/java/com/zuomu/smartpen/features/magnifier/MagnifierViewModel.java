@@ -12,6 +12,9 @@ public class MagnifierViewModel extends ViewModel {
     // 放大倍数 (2x, 3x, 4x, 5x)
     private final MutableLiveData<Integer> zoomLevel = new MutableLiveData<>(2);
 
+    // 放大镜形状 (0=圆形, 1=方形)
+    private final MutableLiveData<Integer> magnifierShape = new MutableLiveData<>(0);
+
     // 是否启用
     private final MutableLiveData<Boolean> isEnabled = new MutableLiveData<>(false);
 
@@ -41,6 +44,19 @@ public class MagnifierViewModel extends ViewModel {
         }
     }
 
+    // 获取放大镜形状
+    public LiveData<Integer> getMagnifierShape() {
+        return magnifierShape;
+    }
+
+    // 设置放大镜形状
+    public void setMagnifierShape(int shape) {
+        if (shape >= 0 && shape <= 1) {
+            magnifierShape.setValue(shape);
+            updateMagnifierSettings();
+        }
+    }
+
     // 获取启用状态
     public LiveData<Boolean> getIsEnabled() {
         return isEnabled;
@@ -56,9 +72,10 @@ public class MagnifierViewModel extends ViewModel {
     private void updateMagnifierSettings() {
         Integer size = magnifierSize.getValue();
         Integer zoom = zoomLevel.getValue();
+        Integer shape = magnifierShape.getValue();
         Boolean enabled = isEnabled.getValue();
 
-        if (size != null && zoom != null && enabled != null && enabled) {
+        if (size != null && zoom != null && shape != null && enabled != null && enabled) {
             // TODO: 发送命令到设备
         }
     }
@@ -72,6 +89,7 @@ public class MagnifierViewModel extends ViewModel {
     public void resetSettings() {
         magnifierSize.setValue(4);
         zoomLevel.setValue(2);
+        magnifierShape.setValue(0);
         isEnabled.setValue(false);
     }
 } 

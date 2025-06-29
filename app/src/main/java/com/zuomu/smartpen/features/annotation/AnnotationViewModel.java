@@ -1,5 +1,7 @@
 package com.zuomu.smartpen.features.annotation;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -24,6 +26,7 @@ public class AnnotationViewModel extends ViewModel {
     public void setAnnotationColor(int color) {
         if (color >= 0 && color <= 4) {
             annotationColor.setValue(color);
+            Log.i("TAG","set annotation Color" + color);
             updateAnnotationSettings();
         }
     }

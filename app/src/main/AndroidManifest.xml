@@ -4,6 +4,11 @@
 
     <!-- USB主机特性声明 -->
     <uses-feature android:name="android.hardware.usb.host" />
+    
+    <!-- 截图权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
 
     <application
         android:name=".SmartPenApplication"
@@ -17,19 +22,36 @@
         <!-- 主Activity -->
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
+            android:exported="true">
+
+        </activity>
+
+        <!-- 截图显示Activity -->
+        <activity
+            android:name=".ScreenshotDisplayActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SmartPen.Fullscreen" />
+
+        <!-- 截图测试Activity -->
+        <activity
+            android:name=".ScreenshotTestActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <!-- 截图服务 -->
+        <service
+            android:name=".ScreenshotService"
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection" />
+
         <!-- 测试Activity -->
         <activity
             android:name="com.zuomu.smartpen.SmartPenTestActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
+            android:exported="true">
 
             <!-- USB设备连接过滤器 -->
             <intent-filter>

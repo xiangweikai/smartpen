@@ -22,6 +22,13 @@
     <string name="timer_title">倒计时</string>
     <string name="voice_title">语音自定义</string>
     
+    <!-- 截图功能 -->
+    <string name="screenshot_title">截图工具</string>
+    <string name="screenshot_permission_required">需要截图权限</string>
+    <string name="screenshot_permission_denied">用户取消了截图权限</string>
+    <string name="screenshot_failed">截图失败</string>
+    <string name="screenshot_success">截图成功</string>
+    
     <!-- 录音设置 -->
     <string name="recording_settings">录音设置</string>
     <string name="recording_save_path">保存路径</string>

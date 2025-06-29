@@ -43,4 +43,14 @@
         <item name="colorError">@color/error</item>
         <item name="colorOnError">@color/white</item>
     </style>
+
+    <!-- 全屏主题，用于截图显示Activity -->
+    <style name="Theme.SmartPen.Fullscreen" parent="Theme.SmartPen">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
 </resources>

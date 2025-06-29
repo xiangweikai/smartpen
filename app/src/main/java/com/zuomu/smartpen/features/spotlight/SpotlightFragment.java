@@ -1,6 +1,7 @@
 package com.zuomu.smartpen.features.spotlight;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.zuomu.smartpen.R;
+import com.zuomu.smartpen.ScreenshotDisplayActivity;
 
 public class SpotlightFragment extends Fragment {
 
@@ -37,10 +39,14 @@ public class SpotlightFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Log.d("SpotlightFragment", "SpotlightFragment onViewCreated被调用");
         viewModel = new ViewModelProvider(this).get(SpotlightViewModel.class);
         initViews(view);
         setupListeners();
         observeViewModel();
+        
+        // 从Activity获取当前配置
+        loadCurrentConfig();
     }
 
     private void initViews(View view) {
@@ -64,6 +70,9 @@ public class SpotlightFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 textSpotlightSize.setText(String.valueOf(progress));
                 viewModel.setSpotlightSize(progress);
+                if (fromUser) {
+                    updateActivityConfig();
+                }
             }
 
             @Override
@@ -78,6 +87,9 @@ public class SpotlightFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 textDarkness.setText(progress + "%");
                 viewModel.setDarkness(progress);
+                if (fromUser) {
+                    updateActivityConfig();
+                }
             }
 
             @Override
@@ -95,9 +107,31 @@ public class SpotlightFragment extends Fragment {
             } else if (checkedId == R.id.chip_large) {
                 viewModel.setSpotlightSize(4);
             }
+            updateActivityConfig();
         });
 
-        btnApply.setOnClickListener(v -> viewModel.saveSettings());
+        btnApply.setOnClickListener(v -> {
+            Log.d("SpotlightFragment", "应用设置按钮被点击");
+            viewModel.saveSettings();
+            // 应用配置后隐藏Fragment
+            if (getActivity() instanceof ScreenshotDisplayActivity) {
+                ScreenshotDisplayActivity activity = (ScreenshotDisplayActivity) getActivity();
+                activity.hideFragment();
+            }
+        });
+    }
+
+    private void updateActivityConfig() {
+        if (getActivity() instanceof ScreenshotDisplayActivity) {
+            ScreenshotDisplayActivity activity = (ScreenshotDisplayActivity) getActivity();
+            Integer size = viewModel.getSpotlightSize().getValue();
+            Integer darkness = viewModel.getDarkness().getValue();
+            
+            if (size != null && darkness != null) {
+                Log.d("SpotlightFragment", "更新Activity配置 - 大小: " + size + ", 暗度: " + darkness);
+                activity.updateSpotlightConfig(size, darkness);
+            }
+        }
     }
 
     private void observeViewModel() {
@@ -126,6 +160,21 @@ public class SpotlightFragment extends Fragment {
 
         if (size != null && dark != null && enabled != null) {
             // TODO: 实现聚光灯效果预览
+        }
+    }
+
+    private void loadCurrentConfig() {
+        if (getActivity() instanceof ScreenshotDisplayActivity) {
+            ScreenshotDisplayActivity activity = (ScreenshotDisplayActivity) getActivity();
+            // 从Activity获取当前配置
+            int size = activity.getSpotlightSize();
+            int darkness = activity.getSpotlightDarkness();
+            
+            // 设置到ViewModel
+            viewModel.setSpotlightSize(size);
+            viewModel.setDarkness(darkness);
+            
+            Log.d("SpotlightFragment", "加载当前配置 - 大小: " + size + ", 暗度: " + darkness);
         }
     }
 } 
