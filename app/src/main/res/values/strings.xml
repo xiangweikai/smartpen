@@ -49,4 +49,5 @@
     <string name="voice_mic_sensitivity">麦克风灵敏度</string>
     <string name="voice_add_command">添加指令</string>
     <string name="voice_select_target">选择目标</string>
+    <string name="accessibility_service_description">This service captures mouse events for the smartpen application.</string>
 </resources>

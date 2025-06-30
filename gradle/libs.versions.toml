@@ -7,6 +7,7 @@ appcompat = "1.6.1"
 material = "1.10.0"
 lifecycle = "2.6.2"
 fragment = "1.6.2"
+sherpaVersion = "v1.11.3"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -18,6 +19,7 @@ lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmode
 lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata", version.ref = "lifecycle" }
 lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime", version.ref = "lifecycle" }
 fragment = { group = "androidx.fragment", name = "fragment", version.ref = "fragment" }
+sherpa = { group = "com.github.k2-fsa", name = "sherpa-onnx", version.ref = "sherpaVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -27,15 +27,12 @@ import com.zuomu.smartpen.features.timer.TimerFragment;
 import com.zuomu.smartpen.features.voice.VoiceFragment;
 import android.util.Log;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MouseEventCallback {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
     private FragmentManager fragmentManager;
-    
-    // 定义触发截图的按键代码（这里使用F12作为示例，您可以根据需要修改）
-    private static final int TRIGGER_KEY_CODE = 88; // F12键的代码
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +50,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onResume() {
         super.onResume();
-        NativeUtils.startReadingMouseEvents(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        NativeUtils.stopReadingMouseEvents();
     }
 
     private void initViews() {
@@ -140,21 +135,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         transaction.commit();
     }
 
-    @Override
-    public void onMouseEvent(MouseEvent event) {
-        // Handle the mouse event on the UI thread
-        runOnUiThread(() -> {
-            Log.d("MainActivity", "收到鼠标事件: " + event.toString());
-            
-            // 检查是否是触发截图的按键事件
-            if (event.code == TRIGGER_KEY_CODE && event.value == 1) { // 按键按下
-                Log.d("MainActivity", "检测到触发截图按键被按下，开始截图流程...");
-                Log.d("MainActivity", "按键代码: " + event.code + ", 按键值: " + event.value);
-                takeScreenshotAndLaunchActivity();
-            }
-        });
-    }
-    
     private void takeScreenshotAndLaunchActivity() {
         Log.d("MainActivity", "开始调用截图功能...");
         ScreenshotUtils.takeScreenshot(this, new ScreenshotUtils.ScreenshotCallback() {
@@ -188,4 +168,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // 处理截图权限请求结果
         ScreenshotUtils.handleActivityResult(requestCode, resultCode, data, this);
     }
-} 
+}
